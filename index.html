@@ -160,6 +160,22 @@
   background-color: rgba(0,0,0,0.7);
 }
 
+.carousel img {
+  opacity: 0;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+  display: block;
+}
+.carousel img.active {
+  opacity: 1;
+  position: relative;
+}
+
+
 .other-skills {
   display: flex;
   flex-wrap: wrap;
@@ -229,7 +245,7 @@
         </div>
       </div>
       <div class="hero-image carousel">
-        <img src="images/Me.png" class="active"  >
+        <img src="images/Me.png" class="active"  alt="รูปตัวเอง">
         <img src="images/solo.png" />
         <img src="images/group.jpg"  >
         <img src="images/poster__CardlandConquest.png" >
@@ -420,7 +436,7 @@ setInterval(nextImage, 5000); // Auto slide
       {
         title: 'Cyber Nexus',
         description: 'An immersive cyberpunk RPG with dynamic storytelling and advanced AI systems.',
-        image: '/images/poster__CardlandConquest.png',
+        image: 'images/poster__CardlandConquest.png',
         category: 'unity',
         technologies: ['Unreal Engine 5', 'Blueprint', 'C++', 'Niagara VFX'],
         demo: 'https://example.com/demo',
