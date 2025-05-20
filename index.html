@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yotsaphon Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* --- ส่วนนี้คือ CSS สำหรับ Project cards --- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: var(--color-bg);
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      border: 1px solid var(--color-gray-200);
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgb(16 185 129 / 0.4);
+    }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .project-content {
+      padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+    .project-content h3 {
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      color: var(--color-text);
+    }
+    .project-content p {
+      margin-bottom: 1rem;
+      color: var(--color-gray-700);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .technologies {
+      margin-bottom: 1rem;
+    }
+    .tech-tag {
+      display: inline-block;
+      background: var(--color-primary);
+      color: white;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      border-radius: 9999px;
+      margin-right: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+    .links a {
+      text-decoration: none;
+      margin-right: 1rem;
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .links a:hover {
+      color: var(--color-primary-dark);
+    }
+    .project-filters {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .project-filters button {
+      padding: 0.5rem 1.2rem;
+      border-radius: 9999px;
+      border: none;
+      background: var(--color-gray-200);
+      color: var(--color-gray-700);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      text-transform: capitalize;
+    }
+    .project-filters button.active,
+    .project-filters button:hover {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      aspect-ratio: 16/9;
+    }
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 1rem;
+    }
+    .carousel-controls button {
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 999px;
+    }
+
+    .carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+  z-index: 10; /* 👈 ทำให้ปุ่มอยู่บนรูป */
+}
+
+.carousel-controls button {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-controls button:hover {
+  transform: scale(1.2); /* 👈 ขยายเมื่อ hover */
+  background-color: rgba(0,0,0,0.7);
+}
+
+.other-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.skill-tag:hover {
+  background: var(--color-primary);
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body class="dark">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#home" class="logo">
+        <i data-lucide="tower-control"></i>
+        <span>Yotsaphon<span class="accent">Portfolio</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#timeline">Experience</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <i data-lucide="moon"></i>
+        </button>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+   <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="tag">
+          <i data-lucide="gamepad-2"></i>
+          Junior Game Programmer
+        </div>
+        <h1>สวัสดีครับ<span class="accent">_เพรียว_ </span>ยศพล_สมหมาย.ครับ</h1>
+        <p>ผมชอบและสนใจในสายงานตำแหน่ง Game Programmer ครับ เนื่องจากสนุกกับการพัฒนาเกม ผมมีความรู้และทักษะในภาษาโปรแกรม C# และเคยพัฒนา Project เกมของภาควิชาระหว่างการศึกษาด้วย Unity Engine</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+        </div>
+      </div>
+      <div class="hero-image carousel">
+        <img src="/images/Me.png" class="active"  >
+        <img src="/images/solo.png" />
+        <img src="/images/group.jpg"  >
+        <img src="/images/poster__CardlandConquest.png" >
+        <div class="carousel-controls">
+          <button id="prev">&#8592;</button>
+          <button id="next">&#8594;</button>
+        </div>
+        <div class="hero-image-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Featured <span class="accent">Projects</span></h2>
+      <div class="project-filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="unity">Unity</button>
+        <button data-filter="Maya">Maya</button>
+
+        <!--<button data-filter="mobile">Mobile</button>
+        <button data-filter="vr">VR</button>-->
+      </div>
+      <div id="project-grid" class="project-grid">
+        <!-- Project cards will be injected here -->
+      </div>
+    </div>
+  </section>
+  <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Technical <span class="accent">Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Game Engines & Frameworks</h3>
+                    <div class="other-skills">
+                      <span class="skill-tag">Version Control</span>
+                      <span class="skill-tag">Game Physics</span>
+                      <span class="skill-tag">AI Programming</span>
+                      <span class="skill-tag">Performance Optimization</span>
+                      <span class="skill-tag">Sound Design</span>
+                      <span class="skill-tag">Networking</span>
+                      <span class="skill-tag">AR/VR Development</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="other-skills">
+                      <span class="skill-tag">3D Modeling</span>
+                      <span class="skill-tag">Animation</span>
+                      <span class="skill-tag">Shader Programming</span>
+                      <span class="skill-tag">Level Design</span>
+                      <span class="skill-tag">UI/UX Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In <span class="accent">Touch</span></h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <i data-lucide="mail"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:Yotsaphon.somm@gmail.com">Yotsaphon.somm@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>San Francisco, CA, USA</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group full">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group full">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="6" required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i data-lucide="tower-control"></i>
+                    <span>DEV<span class="accent">GAMES</span></span>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="#" aria-label="Email"><i data-lucide="mail"></i></a>
+                </div>
+                <p class="copyright">&copy; 2024 Game Developer Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+  <!-- Your other sections here (skills, timeline, contact, footer) -->
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const moonIcon = themeToggle.querySelector('[data-lucide="moon"]');
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        moonIcon.setAttribute('name', 'sun');
+      } else {
+        moonIcon.setAttribute('name', 'moon');
+      }
+      lucide.createIcons();
+    });
+
+    const images = document.querySelectorAll('.carousel img');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+let current = 0;
+
+function showImage(index) {
+  images.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
+  });
+}
+
+function nextImage() {
+  current = (current + 1) % images.length;
+  showImage(current);
+}
+
+function prevImage() {
+  current = (current - 1 + images.length) % images.length;
+  showImage(current);
+}
+
+nextBtn.addEventListener('click', nextImage);
+prevBtn.addEventListener('click', prevImage);
+setInterval(nextImage, 5000); // Auto slide
+
+    // Projects data
+    const projects = [
+      {
+        title: 'Cyber Nexus',
+        description: 'An immersive cyberpunk RPG with dynamic storytelling and advanced AI systems.',
+        image: '/images/poster__CardlandConquest.png',
+        category: 'unity',
+        technologies: ['Unreal Engine 5', 'Blueprint', 'C++', 'Niagara VFX'],
+        demo: 'https://example.com/demo',
+        github: 'https://github.com/example'
+      },
+      {
+        title: 'Astral Voyage',
+        description: 'A space exploration game with procedurally generated planets and lifeforms.',
+        image: 'https://images.pexels.com/photos/1341279/pexels-photo-1341279.jpeg',
+        category: 'unity',
+        technologies: ['Unity 3D', 'C#', 'Shader Graph', 'Procedural Generation'],
+        demo: 'https://example.com/demo'
+      },
+      {
+        title: 'Rune Quest',
+        description: 'A mobile adventure game with innovative touch controls and magic rune system.',
+        image: 'https://images.pexels.com/photos/3964136/pexels-photo-3964136.jpeg',
+        category: 'mobile',
+        technologies: ['Unity 2D', 'C#', 'Firebase', 'iOS/Android'],
+        demo: 'https://example.com/demo',
+        github: 'https://github.com/example'
+      },
+      {
+        title: 'Ethereal Worlds',
+        description: 'A VR meditation experience with interactive environments and biofeedback.',
+        image: 'https://images.pexels.com/photos/6498305/pexels-photo-6498305.jpeg',
+        category: 'vr',
+        technologies: ['Unity XR', 'C#', 'Oculus SDK', '3D Modeling'],
+        demo: 'https://example.com/demo'
+      },
+      {
+        title: 'Mech Warriors',
+        description: 'A team-based multiplayer game featuring customizable mechs and destructible environments.',
+        image: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg',
+        category: 'unreal',
+        technologies: ['Unreal Engine 4', 'C++', 'Photon Networking', 'PhysX'],
+        github: 'https://github.com/example'
+      },
+      {
+        title: 'Puzzle Dimension',
+        description: 'A minimalist puzzle game that plays with perspective and spatial awareness.',
+        image: 'https://images.pexels.com/photos/923734/pexels-photo-923734.jpeg',
+        category: 'unity',
+        technologies: ['Unity 3D', 'C#', 'Shader Programming', 'Level Design'],
+        demo: 'https://example.com/demo',
+        github: 'https://github.com/example'
+      }
+    ];
+
+    const projectGrid = document.getElementById('project-grid');
+    const filterButtons = document.querySelectorAll('.project-filters button');
+
+    function renderProjects(filter = 'all') {
+      projectGrid.innerHTML = '';
+      const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+
+      filtered.forEach(project => {
+        const techTags = project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join(' ');
+        const demoLink = project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener" class="btn-link">Demo</a>` : '';
+        const githubLink = project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="btn-link">GitHub</a>` : '';
+
+        const card = `
+          <div class="project-card">
+            <img src="${project.image}" alt="${project.title}" />
+            <div class="project-content">
+              <h3>${project.title}</h3>
+              <p>${project.description}</p>
+              <div class="technologies">${techTags}</div>
+              <div class="links">${demoLink} ${githubLink}</div>
+            </div>
+          </div>
+        `;
+
+        projectGrid.insertAdjacentHTML('beforeend', card);
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        renderProjects(button.dataset.filter);
+      });
+    });
+
+    renderProjects(); // แสดงโปรเจกต์ทั้งหมดเริ่มต้น
+    
+  </script>
+  
+
+
+   <!-- Timeline Section 
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2>Professional <span class="accent">Journey</span></h2>
+            <div class="timeline-grid">
+                
+            </div>
+        </div>
+    </section>-->
+</body>
+</html>
+
+
+    
