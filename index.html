@@ -214,6 +214,26 @@ body.dark .contact a {
 body.dark .contact a:hover {
     color: #10b981;
 }
+.resume-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.btn2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.7rem;
+  background: #777267;
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.btn2:hover {
+  background: #5e5a53;
+}
+
 
   </style>
 </head>
@@ -229,7 +249,7 @@ body.dark .contact a:hover {
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#timeline">Experience</a>
+        <!--<a href="#timeline">Experience</a>-->
         <a href="#contact">Contact</a>
         <button id="theme-toggle" aria-label="Toggle theme">
           <i data-lucide="moon"></i>
@@ -249,17 +269,30 @@ body.dark .contact a:hover {
           <i data-lucide="gamepad-2"></i>
           Junior Game Programmer
         </div>
-        <h1>สวัสดีครับ<span class="accent">_เพรียว_ </span>ยศพล_สมหมาย.ครับ</h1>
-        <p>ผมชอบและสนใจในสายงานตำแหน่ง Game Programmer ครับ เนื่องจากสนุกกับการพัฒนาเกม ผมมีความรู้และทักษะในภาษาโปรแกรม C# และเคยพัฒนา Project เกมของภาควิชาระหว่างการศึกษาด้วย Unity Engine</p>
+        <h1>สวัสดีครับ<span class="accent">"เพรียว" </span>ยศพล_สมหมาย ครับ</h1>
+        <p>ผมชอบและสนใจในสายงานตำแหน่ง Game Programmer ครับ เนื่องจากสนุกกับการพัฒนาเกม ผมมีความรู้และทักษะในภาษาโปรแกรม C# และเคยพัฒนา Project เกมของภาควิชาระหว่างการศึกษาด้วย Unity Engine และผมพร้อมที่จะนำประสบการณ์ที่ได้รับมาปรับปรุงและพัฒนาครับผม</p>
+        <p>ไม่เคยเขียนเว็บมาก่อนเลยครับ อันนี้ทำครั้งแรกไม่เคยเขียนภาษานี้เลยใช้ AI ช่วยเอาครับ</p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary">View Projects</a>
           <a href="#contact" class="btn btn-outline">Get In Touch</a>
         </div>
+        <div class="resume-buttons">
+          <a href="https://www.canva.com/design/DAGX948O_xQ/0hXb65S7krkGNeVLTs8FLw/view?utm_content=DAGX948O_xQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h38483a6900" target="_blank" class="btn2">
+        <i data-lucide="eye"></i> View Resume
+          </a>
+          <a href="/resume.pdf" target="_blank" class="btn2">
+        <i data-lucide="download"></i> Download PDF
+          </a>
+        </div>
+        <p> </p>
         <div class="social-links">
           <a href="https://github.com/ixmpure7" aria-label="GitHub"><i data-lucide="github"></i></a>
-          <a href="https://www.facebook.com/yotsaphon.sommai/" aria-label="Facebook"><i data-lucide="Facebook"></i></a>
-          <a href="https://www.instagram.com/ixmpure03._/" aria-label="Instagram"><i data-lucide="Instagram"></i></a>
+          <a href="https://www.facebook.com/yotsaphon.sommai/" aria-label="facebook"><i data-lucide="Facebook"></i></a>
+          <a href="https://www.instagram.com/ixmpure03._/" aria-label="instagram"><i data-lucide="Instagram"></i></a>
         </div>
+
+        
+
       </div>
       <div class="hero-image carousel">
         <img src="images/Me.png" class="active"  alt="รูปตัวเอง">
@@ -282,7 +315,7 @@ body.dark .contact a:hover {
       <div class="project-filters">
         <button class="active" data-filter="all">All</button>
         <button data-filter="unity">Unity</button>
-        <button data-filter="Maya">Maya</button>
+        <button data-filter="maya">Maya</button>
 
         <!--<button data-filter="mobile">Mobile</button>
         <button data-filter="vr">VR</button>-->
@@ -300,23 +333,16 @@ body.dark .contact a:hover {
                 <div class="skill-category">
                     <h3>Game Engines & Frameworks</h3>
                     <div class="other-skills">
-                      <span class="skill-tag">Version Control</span>
-                      <span class="skill-tag">Game Physics</span>
-                      <span class="skill-tag">AI Programming</span>
-                      <span class="skill-tag">Performance Optimization</span>
-                      <span class="skill-tag">Sound Design</span>
-                      <span class="skill-tag">Networking</span>
-                      <span class="skill-tag">AR/VR Development</span>
+                      <span class="skill-tag">Unity Engine </span>
+                      <span class="skill-tag">Visual Studio</span>
+                      <span class="skill-tag">GitHub Desktop</span>
+                      <span class="skill-tag">Maya</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Programming Languages</h3>
                     <div class="other-skills">
-                      <span class="skill-tag">3D Modeling</span>
-                      <span class="skill-tag">Animation</span>
-                      <span class="skill-tag">Shader Programming</span>
-                      <span class="skill-tag">Level Design</span>
-                      <span class="skill-tag">UI/UX Design</span>
+                      <span class="skill-tag">C#</span>
                     </div>
                 </div>
             </div>
@@ -352,27 +378,28 @@ body.dark .contact a:hover {
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group full">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" required>
-                        </div>
-                        <div class="form-group full">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="6" required></textarea>
-                        </div>
+                <form action="https://formspree.io/f/mnndrrlv" method="POST" class="contact-form">
+                  <div class="form-grid">
+                    <div class="form-group">
+                      <label for="name">Your Name</label>
+                      <input type="text" id="name" name="name" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                  <div class="form-group">
+                      <label for="email">Your Email</label>
+                      <input type="email" id="email" name="email" required>
+                    </div>
+                  <div class="form-group full">
+                      <label for="subject">Subject</label>
+                      <input type="text" id="subject" name="subject" required>
+                    </div>
+                  <div class="form-group full">
+                      <label for="message">Message</label>
+                      <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                  </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </form>
+
             </div>
         </div>
     </section>
@@ -383,19 +410,17 @@ body.dark .contact a:hover {
             <div class="footer-content">
                 <div class="footer-logo">
                     <i data-lucide="tower-control"></i>
-                    <span>DEV<span class="accent">GAMES</span></span>
+                    <span>Yotsaphon<span class="accent">Portfolio</span></span>
                 </div>
                 <div class="footer-social">
-                    <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-                    <a href="#" aria-label="Email"><i data-lucide="mail"></i></a>
+                    <a href="https://github.com/ixmpure7" aria-label="GitHub"><i data-lucide="github"></i></a>
+                    <a href="https://www.facebook.com/yotsaphon.sommai/" aria-label="facebook"><i data-lucide="Facebook"></i></a>
+                    <a href="https://www.instagram.com/ixmpure03._/" aria-label="instagram"><i data-lucide="Instagram"></i></a>
                 </div>
                 <p class="copyright">&copy; 2024 Game Developer Portfolio. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-
   <!-- Your other sections here (skills, timeline, contact, footer) -->
 
   <script>
@@ -411,17 +436,23 @@ body.dark .contact a:hover {
 
     // Theme toggle
     const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const moonIcon = themeToggle.querySelector('[data-lucide="moon"]');
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      if (body.classList.contains('dark')) {
-        moonIcon.setAttribute('name', 'sun');
-      } else {
-        moonIcon.setAttribute('name', 'moon');
-      }
-      lucide.createIcons();
-    });
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark');
+
+  // หาไอคอนใหม่ทุกครั้ง เพราะชื่อเปลี่ยนไปแล้ว
+  const icon = themeToggle.querySelector('[data-lucide]');
+
+  if (body.classList.contains('dark')) {
+    icon.setAttribute('data-lucide', 'sun');
+  } else {
+    icon.setAttribute('data-lucide', 'moon');
+  }
+
+  lucide.createIcons(); // อัปเดตไอคอนใหม่
+});
+
 
     const images = document.querySelectorAll('.carousel img');
 const prevBtn = document.getElementById('prev');
@@ -451,55 +482,42 @@ setInterval(nextImage, 5000); // Auto slide
     // Projects data
     const projects = [
       {
-        title: 'Cyber Nexus',
+        title: 'CardlandConquest',
         description: 'An immersive cyberpunk RPG with dynamic storytelling and advanced AI systems.',
         image: 'images/poster__CardlandConquest.png',
         category: 'unity',
-        technologies: ['Unreal Engine 5', 'Blueprint', 'C++', 'Niagara VFX'],
-        demo: 'https://example.com/demo',
-        github: 'https://github.com/example'
+        technologies: ['Unity 3D','C#'],
+        demo: 'https://takeoffproject.itch.io/cardland-conquest',
       },
       {
-        title: 'Astral Voyage',
+        title: '3D Model Sniper',
         description: 'A space exploration game with procedurally generated planets and lifeforms.',
-        image: 'https://images.pexels.com/photos/1341279/pexels-photo-1341279.jpeg',
-        category: 'unity',
-        technologies: ['Unity 3D', 'C#', 'Shader Graph', 'Procedural Generation'],
-        demo: 'https://example.com/demo'
+        image: 'images/Sniper3D.png',
+        category: 'maya',
+        technologies: ['Maya'],
       },
       {
-        title: 'Rune Quest',
+        title: '3D Model Fighter jet',
         description: 'A mobile adventure game with innovative touch controls and magic rune system.',
-        image: 'https://images.pexels.com/photos/3964136/pexels-photo-3964136.jpeg',
-        category: 'mobile',
-        technologies: ['Unity 2D', 'C#', 'Firebase', 'iOS/Android'],
-        demo: 'https://example.com/demo',
-        github: 'https://github.com/example'
+        image: 'images/35-1.png',
+        category: 'maya',
+        technologies: ['Maya'],
       },
       {
-        title: 'Ethereal Worlds',
+        title: 'Football With Me',
         description: 'A VR meditation experience with interactive environments and biofeedback.',
-        image: 'https://images.pexels.com/photos/6498305/pexels-photo-6498305.jpeg',
-        category: 'vr',
-        technologies: ['Unity XR', 'C#', 'Oculus SDK', '3D Modeling'],
-        demo: 'https://example.com/demo'
-      },
-      {
-        title: 'Mech Warriors',
-        description: 'A team-based multiplayer game featuring customizable mechs and destructible environments.',
-        image: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg',
-        category: 'unreal',
-        technologies: ['Unreal Engine 4', 'C++', 'Photon Networking', 'PhysX'],
-        github: 'https://github.com/example'
-      },
-      {
-        title: 'Puzzle Dimension',
-        description: 'A minimalist puzzle game that plays with perspective and spatial awareness.',
-        image: 'https://images.pexels.com/photos/923734/pexels-photo-923734.jpeg',
+        image: 'images/FootballWithme.png',
         category: 'unity',
-        technologies: ['Unity 3D', 'C#', 'Shader Programming', 'Level Design'],
-        demo: 'https://example.com/demo',
-        github: 'https://github.com/example'
+        technologies: ['Unity 2D', 'C#'],
+        demo: 'https://physicsforgame-projects.itch.io/football-with-me'
+      },
+      {
+        title: 'DookDik Defender',
+        description: 'A VR meditation experience with interactive environments and biofeedback.',
+        image: 'images/Dookdik.png',
+        category: 'unity',
+        technologies: ['Unity 2D', 'C#'],
+        
       }
     ];
 
