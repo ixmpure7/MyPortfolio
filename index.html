@@ -417,7 +417,8 @@ body.dark .contact a:hover {
                     <a href="https://www.facebook.com/yotsaphon.sommai/" aria-label="facebook"><i data-lucide="Facebook"></i></a>
                     <a href="https://www.instagram.com/ixmpure03._/" aria-label="instagram"><i data-lucide="Instagram"></i></a>
                 </div>
-                <p class="copyright">&copy; 2024 Game Developer Portfolio. All rights reserved.</p>
+                <p class="copyright">&copy; 2024 Ixmpure. All works are copyrighted. Please do not copy without permission.
+</p>
             </div>
         </div>
     </footer>
@@ -482,42 +483,51 @@ setInterval(nextImage, 5000); // Auto slide
     // Projects data
     const projects = [
       {
+        id: '1',
         title: 'CardlandConquest',
         description: 'An immersive cyberpunk RPG with dynamic storytelling and advanced AI systems.',
         image: 'images/poster__CardlandConquest.png',
         category: 'unity',
         technologies: ['Unity 3D','C#'],
         demo: 'https://takeoffproject.itch.io/cardland-conquest',
+        detail: 'project-detail.html?project=1'
       },
       {
+        id: '2',
         title: '3D Model Sniper',
         description: 'A space exploration game with procedurally generated planets and lifeforms.',
         image: 'images/Sniper3D.png',
         category: 'maya',
         technologies: ['Maya'],
+        detail: 'project-detail.html?project=2'
       },
       {
+        id: '3',
         title: '3D Model Fighter jet',
         description: 'A mobile adventure game with innovative touch controls and magic rune system.',
         image: 'images/35-1.png',
         category: 'maya',
         technologies: ['Maya'],
+        detail: 'project-detail.html?project=3'
       },
       {
+        id: '4',
         title: 'Football With Me',
         description: 'A VR meditation experience with interactive environments and biofeedback.',
         image: 'images/FootballWithme.png',
         category: 'unity',
         technologies: ['Unity 2D', 'C#'],
-        demo: 'https://physicsforgame-projects.itch.io/football-with-me'
+        demo: 'https://physicsforgame-projects.itch.io/football-with-me',
+        detail: 'project-detail.html?project=4'
       },
       {
+        id: '5',
         title: 'DookDik Defender',
         description: 'A VR meditation experience with interactive environments and biofeedback.',
         image: 'images/Dookdik.png',
         category: 'unity',
         technologies: ['Unity 2D', 'C#'],
-        
+        detail: 'project-detail.html?project=5'
       }
     ];
 
@@ -532,6 +542,7 @@ setInterval(nextImage, 5000); // Auto slide
         const techTags = project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join(' ');
         const demoLink = project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener" class="btn-link">Demo</a>` : '';
         const githubLink = project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="btn-link">GitHub</a>` : '';
+        const detailLink = project.id ? `<a href="project-detail.html?project=${encodeURIComponent(project.id)}" class="btn-link">Detail</a>` : '';
 
         const card = `
           <div class="project-card">
@@ -540,7 +551,7 @@ setInterval(nextImage, 5000); // Auto slide
               <h3>${project.title}</h3>
               <p>${project.description}</p>
               <div class="technologies">${techTags}</div>
-              <div class="links">${demoLink} ${githubLink}</div>
+              <div class="links">${demoLink} ${githubLink} ${detailLink}</div>
             </div>
           </div>
         `;
