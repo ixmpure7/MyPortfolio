@@ -437,53 +437,49 @@ video.media-content:hover::-webkit-media-controls {
 
     // Carousel Functionality
     function initCarousel(carousel) {
-      const container = carousel.querySelector('.carousel-container');
-      const slides = carousel.querySelectorAll('.carousel-slide');
-      const prevBtn = carousel.querySelector('.carousel-prev');
-      const nextBtn = carousel.querySelector('.carousel-next');
-      
-      let currentIndex = 0;
-      const slideCount = slides.length;
-      
-      function updateCarousel() {
-        const offset = -currentIndex * 100;
-        container.style.transform = `translateX(${offset}%)`;
-      }
-      
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        updateCarousel();
-      });
-      
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateCarousel();
-      });
+  const container = carousel.querySelector('.carousel-container');
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const prevBtn = carousel.querySelector('.carousel-prev');
+  const nextBtn = carousel.querySelector('.carousel-next');
 
-      function updateCarousel() {
+  let currentIndex = 0;
+  const slideCount = slides.length;
+
+  function updateCarousel() {
     const offset = -currentIndex * 100;
     container.style.transform = `translateX(${offset}%)`;
-    
-    // หยุดวีดีโอทั้งหมดก่อน
+
+    // หยุดวิดีโอทั้งหมด
     carousel.querySelectorAll('video').forEach(video => {
       video.pause();
+      video.currentTime = 0; // รีเซ็ตไปที่จุดเริ่มต้น
     });
-    
-    // เล่นวีดีโอในสไลด์ปัจจุบัน (ถ้ามี)
+
+    // พยายามเล่นวิดีโอปัจจุบัน หากมี
     const currentVideo = slides[currentIndex].querySelector('video');
     if (currentVideo) {
-      currentVideo.currentTime = 0; // กลับไปเริ่มต้น
-      // currentVideo.play(); // เล่นอัตโนมัติ (optional)
+      // ใช้ play() พร้อม catch block สำหรับการจัดการข้อผิดพลาด
+      currentVideo.play().catch(error => {
+        console.warn("Video autoplay prevented:", error);
+        // เลือกที่จะแสดงข้อความให้ผู้ใช้ทราบว่าต้องคลิกเล่น
+        // หรือตรวจสอบให้แน่ใจว่าปุ่มควบคุมแสดงอยู่เพื่อให้สามารถเล่นด้วยตนเองได้
+      });
     }
   }
-  if (currentVideo) {
-  currentVideo.currentTime = 0;
-  currentVideo.play().catch(e => console.log("Autoplay blocked:", e));
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slideCount;
+    updateCarousel();
+  });
+
+  // ตั้งค่า carousel เริ่มต้น
+  updateCarousel();
 }
-      
-      // เริ่มต้นแสดงภาพแรก
-      updateCarousel();
-    }
 
     // Load Project Detail
     const params = new URLSearchParams(window.location.search);
