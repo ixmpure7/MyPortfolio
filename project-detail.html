@@ -257,6 +257,25 @@
   box-shadow: 0 6px 18px rgba(16, 185, 129, 0.15);
 }
 
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  /* กำหนดความสูงคงที่สำหรับคอนเทนเนอร์สไลด์ */
+  height: 500px; /* สามารถปรับความสูงตามที่คุณต้องการได้ */
+  display: flex; /* ใช้ flexbox เพื่อจัดตำแหน่งเนื้อหา */
+  align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+  justify-content: center; /* จัดกึ่งกลางแนวนอน */
+}
+
+.carousel-slide img,
+.carousel-slide video {
+  width: 100%;
+  height: 100%; /* ทำให้สื่อเติมเต็มคอนเทนเนอร์สไลด์ */
+  object-fit: contain; /* ทำให้รูปภาพ/วิดีโอทั้งหมดแสดงผลได้ */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.15);
+}
+
 /* สำหรับวีดีโอเฉพาะ */
 video.media-content {
   background-color: #000; /* พื้นหลังดำสำหรับส่วนที่ไม่เต็มจอ */
