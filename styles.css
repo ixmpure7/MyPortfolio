@@ -443,4 +443,16 @@ body.dark .form-group textarea {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Projects Section - Additional styles for detail page */
+.project-content h2 {
+    font-size: 1rem; /* ปรับขนาดตัวอักษรตามต้องการ */
+    margin-bottom: 1rem !important; /* ระยะห่างด้านล่าง */
+    text-align: left; /* จัดข้อความชิดซ้าย */
+    color: var(--color-text); /* สีข้อความปกติ */
+}
+
+body.dark .project-content h2 {
+    color: var(--color-text-dark); /* สีข้อความใน Dark Mode */
+}
 }

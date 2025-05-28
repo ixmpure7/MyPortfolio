@@ -281,6 +281,61 @@ video.media-content {
   background-color: #000; /* พื้นหลังดำสำหรับส่วนที่ไม่เต็มจอ */
 }
 
+/* Project Content Styles - (โดยรวมของเนื้อหารายละเอียด) */
+.project-content {
+    margin: 2rem 0; /* คงเดิม หรืออาจเพิ่มได้หากต้องการให้เนื้อหาโดยรวมมีระยะห่างจาก Carousel มากขึ้น */
+}
+
+/* ปรับระยะห่างสำหรับหัวข้อ H2 (Description, Objectives, My Role, etc.) */
+.project-content h2 {
+    font-size: 1.75rem; /* คงเดิม หรือปรับตามต้องการ */
+    
+    /* *** สำคัญ: เพิ่มระยะห่างด้านบนให้แต่ละหัวข้อ *** */
+    margin-top: 1.5rem; /* เพิ่มระยะห่างด้านบนของแต่ละหัวข้อ ให้ห่างจากเนื้อหาก่อนหน้า */
+    
+    /* *** สำคัญ: เพิ่มระยะห่างด้านล่างของหัวข้อ H2 ให้ห่างจากเนื้อหา P ที่อยู่ติดกัน *** */
+    margin-bottom: 1.5rem !important; /* เพิ่มค่าให้มากขึ้น เพื่อให้ห่างจาก P ข้างล่าง */
+    
+    text-align: left;
+    color: var(--color-text);
+}
+
+body.dark .project-content h2 {
+    color: var(--color-text-dark);
+}
+
+/* ปรับระยะห่างสำหรับเนื้อหาที่เป็น Paragraph (Description, Objectives text, etc.) */
+.project-content p {
+    margin-bottom: 1.5rem; /* เพิ่มระยะห่างด้านล่างของย่อหน้า เพื่อให้ห่างจากส่วนถัดไป */
+    font-size: 1rem; /* คงเดิม */
+    line-height: 1.7; /* คงเดิม */
+    color: var(--color-gray-700);
+}
+
+body.dark .project-content p {
+    color: var(--color-gray-200);
+}
+
+/* ปรับระยะห่างสำหรับ Technologies section */
+.project-content .technologies {
+    /* *** สำคัญ: เพิ่ม margin-top เพื่อให้ห่างจากเนื้อหา Description/Objectives *** */
+    margin-top: 2.5rem; /* เพิ่มระยะห่างด้านบนสำหรับส่วน Technologies */
+    margin-bottom: 2.5rem; /* เพิ่มระยะห่างด้านล่าง ให้ห่างจากปุ่ม Links */
+}
+
+/* ปรับระยะห่างสำหรับ Links section (ปุ่ม Demo/GitHub) */
+.project-content .links {
+    margin-top: 0; /* ไม่ต้องมี margin-top เพราะ technologies มี margin-bottom แล้ว */
+    margin-bottom: 2.5rem; /* เพิ่มระยะห่างด้านล่างของปุ่ม Links */
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* เพิ่มระยะห่างด้านล่างของ Project-detail container โดยรวม */
+main#project-detail {
+    padding-bottom: 4rem; /* เพิ่ม padding ด้านล่างของเนื้อหาหลัก ก่อนถึง Footer */
+}
 
 /* ปรับปุ่มควบคุมวีดีโอ */
 /*
@@ -388,52 +443,79 @@ video.media-content:hover::-webkit-media-controls {
       {
         id: '1',
         title: 'Cardland Conquest',
-        description: 'An immersive cyberpunk RPG with dynamic storytelling and advanced AI systems.',
+        description: 'Cardland Conquest เป็นเกมแนว Survival Cards ที่นำเสนอประสบการณ์การเอาชีวิตรอดที่แตกต่างออกไป ด้วยสไตล์ภาพแบบ 2D Pixel Art อันเป็นเอกลักษณ์ ซึ่งช่วยเพิ่มเสน่ห์และความคลาสสิกให้กับเกม ผู้เล่นจะถูกท้าทายให้คิด วิเคราะห์ และวางแผนการเอาตัวรอดในแต่ละวัน บนเกาะที่ไม่รู้จัก โดยมีวงจร กลางวัน-กลางคืน ที่ส่งผลต่อการปรากฏตัวของศัตรูและอีเวนต์ต่างๆ',
+        objectives: 'สร้างเกมแนว Survival Cards ที่น่าสนใจ โดยเน้นการผสมผสานกลไกการ์ดเกมเข้ากับการเอาชีวิตรอดแบบ 2D Pixel Art เพื่อมอบประสบการณ์การเล่นที่แปลกใหม่และท้าทายให้กับผู้เล่น',
+        myRole: 'Game Programmer: รับผิดชอบหลักในการพัฒนา Feature ต่างของเกม, ระบบ Looting, ระบบ StackCard, AI ของศัตรู, การจัดการ ระบบเวลา Day Night Circle รวมถึงการแก้บั๊กและปรับปรุงประสิทธิภาพของเกมในส่วนอื่นๆ ที่ได้รับมอบหมาย',
         media: [
           { type: 'video', src: 'Videos/36_Cardland_Conquest.mp4' },
+          { type: 'image', src: 'images/gF_PYl.gif' },
+          { type: 'image', src: 'images/1Nv6tc.gif' },
+          { type: 'image', src: 'images/pBboUl.gif' },
           { type: 'image', src: 'images/poster__CardlandConquest.png' },
           { type: 'image', src: 'images/group.jpg' },
         ],
         category: 'unity',
-        technologies: ['Unity 3D', 'C#'],
+        technologies: ['Unity 3D', 'C#', 'Pixel Art', 'Github'],
         demo: 'https://takeoffproject.itch.io/cardland-conquest',
         github: 'https://github.com/yourname/cardlandconquest'
       },
       {
         id: '2',
         title: '3D Model Sniper',
-        description: 'A space exploration game with procedurally generated planets and lifeforms.',
-        images: ['images/Sniper3D.png'],
+        description: 'โปรเจกต์นี้เป็นการสร้างโมเดล 3D ของปืนไรเฟิลซุ่มยิง (Sniper Rifle) โดยใช้โปรแกรม Autodesk Maya เป็นผลงานที่พัฒนาขึ้นระหว่างการเรียน เพื่อฝึกฝนทักษะการ Modeling',
+        objectives: 'เพื่อฝึกฝนและแสดงให้เห็นถึงทักษะในการสร้างโมเดล 3D รวมถึงการเรียนรู้กระบวนการทำงานตั้งแต่การรวบรวม Reference, การขึ้นรูปโมเดล',
+        myRole: '3D Modeler: รับผิดชอบการ Modeling ปืน Sniper Rifle ทั้งหมดตั้งแต่เริ่มต้นจนเสร็จสิ้น',
+        media: [
+          { type: 'video', src: 'Videos/Sniper.mp4' },
+          { type: 'image', src: 'images/Sniper3D.png' },
+        ],
         category: 'maya',
         technologies: ['Maya']
       },
       {
         id: '3',
         title: '3D Model Fighter jet',
-        description: 'A mobile adventure game with innovative touch controls and magic rune system.',
-        images: ['images/35-1.png',
-          'images/35-2.png',
-          'images/35-3.png',
+        description: 'โปรเจกต์นี้เป็นส่วนหนึ่งของรายวิชา 3D Modeling โดยเป็นการสร้างโมเดล 3D ของเครื่องบินขับไล่ F-35 ตั้งแต่เริ่มต้นจนเสร็จสมบูรณ์. การทำงานนี้ครอบคลุมการใช้ Autodesk Maya สำหรับการขึ้นรูปโมเดล และ Substance Painter เพื่อสร้าง Texture และ Material ที่สมจริง. โปรเจกต์นี้ได้จำลองกระบวนการทำงานแบบ Production Pipeline ในอุตสาหกรรมเกม เพื่อให้โมเดลที่ได้พร้อมสำหรับการนำไปใช้งานใน Game Engine เช่น Unity.',
+        objectives: 'เพื่อประยุกต์ใช้ความรู้และทักษะที่ได้รับจากรายวิชา 3D Modeling ในการสร้างโมเดล 3D ประเภท Hard Surface ที่มีความซับซ้อน. โดยมีวัตถุประสงค์หลักคือการฝึกฝนและแสดงให้เห็นถึงความเข้าใจในกระบวนการ 3D Asset Creation Pipeline ทั้งหมด ได้แก่ การ Modeling, การทำ UV Unwrapping, และการ Optimize โมเดลให้เป็น Game-ready Asset พร้อมสำหรับการ Export ไปใช้งานใน Unity.',
+        myRole: '3D Modeler: รับผิดชอบการสร้างโมเดลเครื่องบินขับไล่ F-35 ทั้งหมดใน Autodesk Maya, การจัดทำ UV Layout ที่มีประสิทธิภาพ, การสร้างและลงสี Texture คุณภาพสูงด้วย Substance Painter, และการเตรียมไฟล์โมเดลพร้อม Texture เพื่อ Export ไปยัง Unity Engine.',
+        media: [
+          { type: 'image', src: 'images/35-1.png' },
+          { type: 'image', src: 'images/35-2.png' },
+          { type: 'image', src: 'images/35-3.png' },
         ],
         category: 'maya',
-        technologies: ['Maya']
+        technologies: ['Maya','Substance Painter', 'UV Unwrapping', 'Unity Integration']
       },
       {
         id: '4',
         title: 'Football With Me',
-        description: 'A VR meditation experience with interactive environments and biofeedback.',
-        images: ['images/FootballWithme.png'],
+        description: 'Football With Me เป็นเกม 2D แนวฟิสิกส์ที่พัฒนาขึ้นสำหรับรายวิชา Physics for Games โดยเป็นโปรเจกต์ร่วมกับเพื่อนร่วมทีม. ผู้เล่นจะได้รับความท้าทายในการ ยิงลูกฟุตบอลแบบ projectile เพื่อให้เข้าประตู โดยต้องหลีกเลี่ยงอุปสรรคต่างๆ ที่สร้างและปรับแต่งด้วย Physics Components ของ Unity Engine. เกมนี้มุ่งเน้นการประยุกต์ใช้หลักการฟิสิกส์เพื่อสร้างประสบการณ์การเล่นที่ต้องใช้การคำนวณวิถีโค้งและการวางแผนอย่างแม่นยำ.',
+        objectives: 'เพื่อประยุกต์ใช้ความเข้าใจในหลักการฟิสิกส์ในเกม 2D ผ่านการใช้งาน Physics Components ของ Unity Engine และการออกแบบระดับ (Level Design) ร่วมกับเพื่อนร่วมทีม. โดยมีวัตถุประสงค์หลักคือการออกแบบและจัดวางอุปสรรคที่มีปฏิสัมพันธ์ทางฟิสิกส์ ซึ่งผู้เล่นจะต้องคำนวณ วิถีโค้งของการยิง (Projectile motion) เพื่อให้ลูกบอลผ่านไปได้, รวมถึงการจัดการและปรับแต่งระบบเสียงเพลงประกอบและเสียงเอฟเฟกต์ต่างๆ ในเกมผ่าน Audio Components ของ Unity เพื่อเพิ่มอรรถรสและบรรยากาศในการเล่น.',
+        myRole: 'Level Designer (Physics-based Obstacles & Trajectory Challenges) & Sound Integrator: ในโปรเจกต์กลุ่มนี้ ผมรับผิดชอบหลักในการออกแบบและสร้างสรรค์อุปสรรคภายในเกมโดยการเลือกใช้ จัดวาง และปรับแต่ง **Physics Components ที่เหมาะสมของ Unity (เช่น Rigidbody, Collider, Physics Material) เพื่อสร้างความท้าทายที่ผู้เล่นจะต้องคำนวณวิถีการยิงลูกบอล. นอกจากนี้ ยังดูแลในส่วนของการจัดการไฟล์เสียงและตั้งค่า Audio Source Components สำหรับทั้งเพลงประกอบ (BGM) และเสียงเอฟเฟกต์ (SFX) เพื่อให้เสียงต่างๆ เล่นได้อย่างเหมาะสมกับสถานการณ์ในเกม.',
+        media: [
+          { type: 'image', src: 'images/FootballWithme.png' },
+          { type: 'image', src: 'images/FootballWithMe01.gif' },
+          { type: 'image', src: 'images/FootballWithMe02.gif' },
+        ],
         category: 'unity',
-        technologies: ['Unity 2D', 'C#'],
+        technologies: ['Unity 2D', 'Unity Physics (Rigidbody, Collider, Physics Material)', 'Audio Management (Unity)', 'Level Design', 'Projectile Motion'],
         demo: 'https://physicsforgame-projects.itch.io/football-with-me'
       },
       {
         id: '5',
         title: 'DookDik Defender',
-        description: 'A VR meditation experience with interactive environments and biofeedback.',
-        images: ['images/Dookdik.png'],
+        description: 'DookDik Defender เป็นเกม 2D แนว Clicker และ Survival ที่พัฒนาขึ้นเป็นโปรเจกต์กลุ่มในรายวิชา Game Analytics โดยมีวัตถุประสงค์หลักคือ การเป็น Platform สำหรับการทดลองเก็บและวิเคราะห์ข้อมูลพฤติกรรมผู้เล่น (Game Analytics). ในเกมนี้ ผู้เล่นจะควบคุมตัวละครหลักที่ยืนอยู่กลางจอและต้องเอาชีวิตรอดจากการโจมตีของศัตรูที่สุ่มเกิดรอบจอและเดินเข้ามาหาผู้เล่น. เมื่อจัดการศัตรูได้จะได้รับเหรียญ ซึ่งสามารถนำไปคลิกเพื่ออัปเกรดความสามารถและซื้อ Skill ต่างๆ เพื่อใช้ในการรับมือกับคลื่นศัตรูที่เข้ามาไม่หยุดยั้ง. ทุกการกระทำและเหตุการณ์สำคัญในเกมจะถูกบันทึกเพื่อนำไปวิเคราะห์ต่อไป.',
+        objectives: 'เพื่อประยุกต์ใช้ความรู้และทักษะด้านการพัฒนาเกม 2D ใน Unity Engine และภาษา C# ร่วมกับเพื่อนร่วมทีม. โดยมีวัตถุประสงค์หลักคือ การสร้างเกมต้นแบบที่สามารถเก็บข้อมูลพฤติกรรมผู้เล่นได้อย่างละเอียดเพื่อวัตถุประสงค์ด้าน Game Analytics โดยใช้ Unity Analytics. ควบคู่ไปกับการพัฒนา Gameplay หลัก เช่น การสร้างและพัฒนา ระบบ Skill (Skill System) และ ระบบร้านค้า (Shop System) ที่เป็นกลไกสำคัญในการทดลองเก็บข้อมูลการตัดสินใจและพฤติกรรมการใช้จ่ายของผู้เล่น.',
+        myRole: 'Gameplay Programmer (Skill System & Shop System) : ในโปรเจกต์กลุ่มนี้ ผมรับผิดชอบหลักในการเขียนโค้ดและพัฒนา ระบบ Skill ให้ทำงานตามกลไกที่ทีมออกแบบไว้ นอกจากนี้ ยังดูแลการพัฒนา ระบบร้านค้าและระบบเศรษฐกิจพื้นฐานของเกม ทั้งหมด ซึ่งรวมถึงการเชื่อมโยงกับการได้รับเหรียญเมื่อศัตรูถูกกำจัด.',
+        media: [
+          { type: 'image', src: 'images/Dookdik.png' },
+          { type: 'image', src: 'images/Dookdik01.gif' },
+          { type: 'image', src: 'images/Dookdik02.gif' },
+          { type: 'image', src: 'images/Dookdik03.gif' },
+          { type: 'image', src: 'images/Dookdik04.gif' },
+        ],
         category: 'unity',
-        technologies: ['Unity 2D', 'C#']
+        technologies: ['Unity 2D', 'C#', 'UI/UX Implementation', 'Shop System Development', 'Skill System Design']
       }
     ];
 
@@ -514,7 +596,12 @@ video.media-content:hover::-webkit-media-controls {
   </div>
         
         <div class="project-content">
+          <h2><span class="accent">Description</span></h2>
           <p>${project.description}</p>
+          <h2><span class="accent">Objectives</span></h2>
+          <p>${project.objectives}</p>
+          <h2><span class="accent">MyRole</span></h2>
+          <p>${project.myRole}</p>
           <div class="technologies" aria-label="Technologies used">
             ${project.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('')}
           </div>
