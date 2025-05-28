@@ -281,12 +281,13 @@ video.media-content {
   background-color: #000; /* พื้นหลังดำสำหรับส่วนที่ไม่เต็มจอ */
 }
 
+
 /* ปรับปุ่มควบคุมวีดีโอ */
+/*
 video.media-content::-webkit-media-controls {
   background: rgba(0,0,0,0.5);
 }
 
-/* ซ่อน controls จนกว่า hover */
 video.media-content::-webkit-media-controls {
   opacity: 0;
   transition: opacity 0.3s;
@@ -295,6 +296,7 @@ video.media-content::-webkit-media-controls {
 video.media-content:hover::-webkit-media-controls {
   opacity: 1;
 }
+*/
   </style>
 </head>
 <body class="dark">
@@ -388,7 +390,7 @@ video.media-content:hover::-webkit-media-controls {
         title: 'Cardland Conquest',
         description: 'An immersive cyberpunk RPG with dynamic storytelling and advanced AI systems.',
         media: [
-          { type: 'video', src: 'videos/36_Cardland Conquest.mp4' },
+          { type: 'video', src: 'videos/36_Cardland_Conquest.mp4' },
           { type: 'image', src: 'images/poster__CardlandConquest.png' },
           { type: 'image', src: 'images/group.jpg' },
         ],
